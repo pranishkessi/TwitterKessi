@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.si.twitterkessi">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name="com.si.twitterkessi.Interested"/>
+        <activity android:name="com.si.twitterkessi.YourSelf" />
+        <activity
+            android:name="com.si.twitterkessi.DashBoard"
+            android:label="title_activity_dash_board"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.si.twitterkessi.Customize" />
+        <activity android:name="com.si.twitterkessi.Camera" />
+        <activity android:name="com.si.twitterkessi.SignUP" />
+        <activity android:name="com.si.twitterkessi.MainActivity" />
+        <activity android:name="com.si.twitterkessi.Login_activity" />
+        <activity android:name="com.si.twitterkessi.Password" />
+        <activity android:name="com.si.twitterkessi.Verification" />
+        <activity android:name="com.si.twitterkessi.Final_Step_signUP" />
+        <activity android:name="com.si.twitterkessi.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

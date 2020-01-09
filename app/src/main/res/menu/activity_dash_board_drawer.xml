@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_person_outline_black_24dp"
+            android:title="profile" />
+        <item
+            android:icon="@drawable/ic_playlist_play_black_24dp"
+            android:title="List" />
+        <item
+            android:icon="@drawable/ic_message_black_24dp"
+            android:title="topics" />
+        <item
+            android:icon="@drawable/ic_bookmark_white"
+            android:title="Bookmarks" />
+        <item
+            android:icon="@drawable/ic_flash"
+            android:title="Moments" />
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+
+                android:title="Setting and privacy" />
+            <item
+
+                android:title="Help Center" />
+        </menu>
+    </item>
+</menu>
