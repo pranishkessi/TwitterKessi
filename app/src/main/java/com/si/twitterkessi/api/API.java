@@ -3,10 +3,10 @@ package com.si.twitterkessi.api;
 
 import com.si.twitterkessi.model.Check;
 import com.si.twitterkessi.model.ImageModel;
-import com.shrestharohit.androidprojecttwittere.model.SignUpResponse;
-import com.shrestharohit.androidprojecttwittere.model.TweetM;
-import com.shrestharohit.androidprojecttwittere.model.User;
-import com.shrestharohit.androidprojecttwittere.model.UserInfo;
+import com.si.twitterkessi.model.SignUpResponse;
+import com.si.twitterkessi.model.TweetM;
+import com.si.twitterkessi.model.User;
+import com.si.twitterkessi.model.UserInfo;
 
 import java.util.List;
 
