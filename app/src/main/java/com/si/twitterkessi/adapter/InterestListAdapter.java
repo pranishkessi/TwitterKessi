@@ -28,7 +28,7 @@ public class InterestListAdapter extends RecyclerView.Adapter<InterestListAdapte
     @NonNull
     @Override
     public InterestName onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from( parent.getContext() ).inflate( R.layout.list_interests, parent, false );
+        View view = LayoutInflater.from( parent.getContext() ).inflate( R.layout.intrest_list, parent, false );
         return new InterestName( view );
     }
 
