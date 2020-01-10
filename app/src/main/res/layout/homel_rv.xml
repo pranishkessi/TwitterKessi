@@ -84,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="88"
+            android:text="52K"
             />
 
         <ImageView
@@ -97,7 +97,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="88" />
+            android:text="12K" />
 
         <ImageView
             android:layout_marginLeft="20dp"
@@ -109,7 +109,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="88" />
+            android:text="2.5M" />
 
         <ImageView
             android:layout_marginRight="10dp"
@@ -118,6 +118,10 @@
             android:layout_height="25dp"
             android:layout_weight="1"
             android:src="@drawable/ic_share" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="57K" />
     </LinearLayout>
 
     <View

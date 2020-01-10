@@ -42,6 +42,7 @@ public class DashBoard extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_dash_board );
         Toolbar toolbar = findViewById( R.id.toolbar );
+        toolbar.setTitle("Twitter");
         setSupportActionBar( toolbar );
         loadCurrentUser();
         DrawerLayout drawer = findViewById( R.id.drawer_layout );
