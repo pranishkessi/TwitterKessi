@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Customize extends AppCompatActivity {
+public class ActivityCustom extends AppCompatActivity {
 String email,username;
 Button btn_next;
 TextView tv_help;
@@ -27,7 +27,7 @@ TextView tv_help;
         btn_next.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( Customize.this, Final_Step_signUP.class );
+                Intent intent = new Intent( ActivityCustom.this, ActivityLastSignup.class );
                 intent.putExtra( "email",email );
                 intent.putExtra( "username",username );
                 startActivity( intent );

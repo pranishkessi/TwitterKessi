@@ -16,9 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.CursorLoader;
 
 import com.si.twitterkessi.api.ApiClass;
-import com.si.twitterkessi.model.ImageModel;
-import com.si.twitterkessi.model.SignUpResponse;
-import com.si.twitterkessi.model.User;
+import com.si.twitterkessi.model.ModelImage;
+import com.si.twitterkessi.model.ModelSignUpResponse;
+import com.si.twitterkessi.model.ModelUser;
 import com.si.twitterkessi.strictMode.StrictModeClass;
 
 import java.io.File;
@@ -31,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Camera extends AppCompatActivity {
+public class ActivityCamera extends AppCompatActivity {
     ImageView iv_profile;
     Button btn_login;
     String password, email, username, imageName;
@@ -62,7 +62,7 @@ public class Camera extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (imagePath.isEmpty()) {
-                    Toast.makeText( Camera.this, "Select Image first", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivityCamera.this, "Select Image first", Toast.LENGTH_SHORT ).show();
                     return;
                 }
                 saveImageOnly();
@@ -111,12 +111,12 @@ public class Camera extends AppCompatActivity {
 
         ApiClass usersAPI = new ApiClass();
 
-        Call<ImageModel> responseBodyCall = usersAPI.calls().uploadImage( body );
+        Call<ModelImage> responseBodyCall = usersAPI.calls().uploadImage( body );
 
         StrictModeClass.StrictMode();
         //Synchronous methid
         try {
-            Response<ImageModel> imageResponseResponse = responseBodyCall.execute();
+            Response<ModelImage> imageResponseResponse = responseBodyCall.execute();
             imageName = imageResponseResponse.body().getFilename();
 
         } catch (IOException e) {
@@ -126,30 +126,30 @@ public class Camera extends AppCompatActivity {
     }
 
     private void signUp() {
-        User users = new User( email, password, username, imageName );
+        ModelUser users = new ModelUser( email, password, username, imageName );
 
         ApiClass usersAPI = new ApiClass();
-        final Call<SignUpResponse> signUpCall = usersAPI.calls().register( users );
+        final Call<ModelSignUpResponse> signUpCall = usersAPI.calls().register( users );
 
-        signUpCall.enqueue( new Callback<SignUpResponse>() {
+        signUpCall.enqueue( new Callback<ModelSignUpResponse>() {
             @Override
-            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+            public void onResponse(Call<ModelSignUpResponse> call, Response<ModelSignUpResponse> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText( Camera.this, "Code " + response.code(), Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivityCamera.this, "Code " + response.code(), Toast.LENGTH_SHORT ).show();
                     return;
                 }
-                SignUpResponse signUpResponse = response.body();
+                ModelSignUpResponse signUpResponse = response.body();
                 token = signUpResponse.getToken();
                 Log.d( "token", token );
-                Intent intent = new Intent( Camera.this, YourSelf.class );
+                Intent intent = new Intent( ActivityCamera.this, ActivitySelf.class );
                 intent.putExtra( "token", token );
                 startActivity( intent );
 
             }
 
             @Override
-            public void onFailure(Call<SignUpResponse> call, Throwable t) {
-                Toast.makeText( Camera.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
+            public void onFailure(Call<ModelSignUpResponse> call, Throwable t) {
+                Toast.makeText( ActivityCamera.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
             }
         } );
 

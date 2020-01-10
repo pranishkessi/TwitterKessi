@@ -17,14 +17,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.si.twitterkessi.api.ApiClass;
-import com.si.twitterkessi.model.Check;
-import com.si.twitterkessi.model.User;
+import com.si.twitterkessi.model.ModelCheck;
+import com.si.twitterkessi.model.ModelUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUP extends AppCompatActivity {
+public class ActivitySignUP extends AppCompatActivity {
     EditText sn_email, sn_username;
     ImageView sn_Us, sn_Em, back;
     Button btn_next;
@@ -60,7 +60,7 @@ public class SignUP extends AppCompatActivity {
         back.setOnClickListener( new View.OnClickListener() {
                                      @Override
                                      public void onClick(View v) {
-                                         Intent back=new Intent( SignUP.this,MainActivity.class );
+                                         Intent back=new Intent( ActivitySignUP.this,MainActivity.class );
                                          startActivity( back );
                                      }
                                  }
@@ -70,11 +70,11 @@ public class SignUP extends AppCompatActivity {
             public void onClick(View v) {
                 if(chekE==true&&chekU==true){
 
-                        User user = new User( Email );
+                        ModelUser user = new ModelUser( Email );
                     Checkuser( user );
 
                 }else{
-                    Toast.makeText( SignUP.this, "fill require field with valid information", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivitySignUP.this, "fill require field with valid information", Toast.LENGTH_SHORT ).show();
                     return;
                 }
 
@@ -192,35 +192,35 @@ public class SignUP extends AppCompatActivity {
 
     }
 
-    void Checkuser(User us) {
+    void Checkuser(ModelUser us) {
         ApiClass apiClass = new ApiClass();
-        Call<Check> checkCall = apiClass.calls().check( us );
-        checkCall.enqueue( new Callback<Check>() {
+        Call<ModelCheck> checkCall = apiClass.calls().check( us );
+        checkCall.enqueue( new Callback<ModelCheck>() {
             @Override
-            public void onResponse(Call<Check> call, Response<Check> response) {
+            public void onResponse(Call<ModelCheck> call, Response<ModelCheck> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText( SignUP.this, "error" + response.code(), Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivitySignUP.this, "error" + response.code(), Toast.LENGTH_SHORT ).show();
                     Log.d( "error", "error" + response.code() );
                     return;
                 }
-                Check check = response.body();
-                //Toast.makeText( SignUP.this, "user " + check.getStatus(), Toast.LENGTH_SHORT ).show();
+                ModelCheck check = response.body();
+                //Toast.makeText( ActivitySignUP.this, "user " + check.getStatus(), Toast.LENGTH_SHORT ).show();
                 if (check.getStatus().equals( "good to go" )) {
-                    Intent next = new Intent( SignUP.this, Customize.class );
+                    Intent next = new Intent( ActivitySignUP.this, ActivityCustom.class );
                     next.putExtra( "email", Email );
                     next.putExtra( "username", Username );
                     startActivity( next );
                     return;
                 } else {
-                    //Toast.makeText( SignUP.this, "user " + check.getStatus(), Toast.LENGTH_SHORT ).show();
+                    //Toast.makeText( ActivitySignUP.this, "user " + check.getStatus(), Toast.LENGTH_SHORT ).show();
                     sn_em_error.setText( "exited" );
                     sn_em_error.setTextColor( Color.RED );
                 }
             }
 
             @Override
-            public void onFailure(Call<Check> call, Throwable t) {
-                Toast.makeText( SignUP.this, "error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
+            public void onFailure(Call<ModelCheck> call, Throwable t) {
+                Toast.makeText( ActivitySignUP.this, "error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
                 Log.d( "error", "error   " + t.getLocalizedMessage() );
 
             }

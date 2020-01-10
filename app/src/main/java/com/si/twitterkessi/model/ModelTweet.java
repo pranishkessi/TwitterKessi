@@ -1,12 +1,12 @@
 package com.si.twitterkessi.model;
 
-public class TweetM {
+public class ModelTweet {
     String headingtext;
     String messagetext;
     String messageimage;
     String userimage;
 
-    public TweetM(String headingtext, String messagetext, String messageimage, String userimage) {
+    public ModelTweet(String headingtext, String messagetext, String messageimage, String userimage) {
         this.headingtext = headingtext;
         this.messagetext = messagetext;
         this.messageimage = messageimage;

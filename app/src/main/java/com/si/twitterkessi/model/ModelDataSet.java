@@ -1,6 +1,6 @@
 package com.si.twitterkessi.model;
 
-public class DataSet {
+public class ModelDataSet {
     String name;
     String name1;
     String name2;
@@ -8,7 +8,7 @@ public class DataSet {
     String name4;
     String name5;
 
-    public DataSet(String name, String name1, String name2, String name3, String name4, String name5) {
+    public ModelDataSet(String name, String name1, String name2, String name3, String name4, String name5) {
         this.name = name;
         this.name1 = name1;
         this.name2 = name2;

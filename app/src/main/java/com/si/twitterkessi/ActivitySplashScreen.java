@@ -7,7 +7,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SplashScreen extends AppCompatActivity {
+public class ActivitySplashScreen extends AppCompatActivity {
     ProgressBar progressBar;
     private Handler handler = new Handler();
     int initialPoint;
@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
         public void run() {
             try {
                 sleep(2000);
-                Intent intent = new Intent(SplashScreen.this,MainActivity.class);
+                Intent intent = new Intent(ActivitySplashScreen.this,MainActivity.class);
                 startActivity(intent);
 
             } catch (InterruptedException e) {

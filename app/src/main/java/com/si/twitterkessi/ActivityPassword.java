@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Password extends AppCompatActivity {
+public class ActivityPassword extends AppCompatActivity {
     EditText txtpass;
     TextView txterror;
     ImageButton imageButton;
@@ -44,9 +44,9 @@ public class Password extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 if(password.isEmpty()){
-    Toast.makeText( Password.this, "check password", Toast.LENGTH_SHORT ).show();
+    Toast.makeText( ActivityPassword.this, "check password", Toast.LENGTH_SHORT ).show();
 return;}else{
-    Intent intent = new Intent( Password.this, Camera.class);
+    Intent intent = new Intent( ActivityPassword.this, ActivityCamera.class);
     intent.putExtra( "email",email );
     intent.putExtra( "username",username );
     intent.putExtra( "password",password );

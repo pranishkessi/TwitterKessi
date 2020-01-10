@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.si.twitterkessi.Camera;
-import com.si.twitterkessi.Login_activity;
+import com.si.twitterkessi.ActivityCamera;
+import com.si.twitterkessi.ActivityLogin;
 import com.si.twitterkessi.R;
 import com.si.twitterkessi.adapter.TweetAdapter;
 import com.si.twitterkessi.api.ApiClass;
-import com.si.twitterkessi.model.TweetM;
+import com.si.twitterkessi.model.ModelTweet;
 
 import java.util.List;
 
@@ -26,8 +26,8 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-    Camera cm = new Camera();
-    Login_activity la = new Login_activity();
+    ActivityCamera cm = new ActivityCamera();
+    ActivityLogin la = new ActivityLogin();
     RecyclerView recyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -56,15 +56,15 @@ public class HomeFragment extends Fragment {
 
         ApiClass usersAPI = new ApiClass();
 
-        Call<List<TweetM>> userCall = usersAPI.calls().GetTweet( token );
-        userCall.enqueue( new Callback<List<TweetM>>() {
+        Call<List<ModelTweet>> userCall = usersAPI.calls().GetTweet( token );
+        userCall.enqueue( new Callback<List<ModelTweet>>() {
             @Override
-            public void onResponse(Call<List<TweetM>> call, Response<List<TweetM>> response) {
+            public void onResponse(Call<List<ModelTweet>> call, Response<List<ModelTweet>> response) {
                 if (!response.isSuccessful()) {
                     Toast.makeText( getContext(), "Code " + response.code(), Toast.LENGTH_SHORT ).show();
                     return;
                 }
-                List<TweetM> tweetMS = response.body();
+                List<ModelTweet> tweetMS = response.body();
 
                 TweetAdapter tweetAdapter = new TweetAdapter( getContext(), tweetMS );
                 recyclerView.setAdapter( tweetAdapter );
@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<TweetM>> call, Throwable t) {
+            public void onFailure(Call<List<ModelTweet>> call, Throwable t) {
                 Toast.makeText( getContext(), "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
 
             }

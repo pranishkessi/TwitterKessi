@@ -14,10 +14,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.si.twitterkessi.api.LoginBLL;
-import com.si.twitterkessi.model.User;
+import com.si.twitterkessi.model.ModelUser;
 import com.si.twitterkessi.strictMode.StrictModeClass;
 
-public class Login_activity extends AppCompatActivity {
+public class ActivityLogin extends AppCompatActivity {
     EditText et_email, et_password;
     ImageButton ib_show_P;
     TextView Tx_sp;
@@ -28,7 +28,7 @@ public class Login_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_login_activity );
+        setContentView( R.layout.activity_login);
         Tx_sp=findViewById( R.id.Tx_sp );
         et_email = findViewById( R.id.login_email );
         et_password = findViewById( R.id.login_password );
@@ -37,7 +37,7 @@ public class Login_activity extends AppCompatActivity {
         Tx_sp.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent back=new Intent( Login_activity.this,MainActivity.class );
+                Intent back=new Intent( ActivityLogin.this,MainActivity.class );
                 startActivity( back );
             }
         } );
@@ -61,9 +61,9 @@ public class Login_activity extends AppCompatActivity {
 
                 if (!TextUtils.isEmpty( et_email.getText().toString() )) {
                     if (!TextUtils.isEmpty( et_password.getText().toString() )) {
-                        User u = new User( et_email.getText().toString(),
+                        ModelUser u = new ModelUser( et_email.getText().toString(),
                                 et_password.getText().toString() );
-                        Toast.makeText(Login_activity.this, ""+et_email.getText().toString()+et_password.getText().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivityLogin.this, ""+et_email.getText().toString()+et_password.getText().toString(), Toast.LENGTH_SHORT).show();
 login( u );
                     } else {
                         et_password.setError( "empty" );
@@ -74,11 +74,11 @@ login( u );
             }
         } );
     }
-    private void login(User u) {
+    private void login(ModelUser u) {
         LoginBLL loginBLL = new LoginBLL();
         StrictModeClass.StrictMode();
         if (loginBLL.checkUser(u.getEmail(), u.getPassword())) {
-            Intent intent = new Intent( Login_activity.this,DashBoard.class );
+            Intent intent = new Intent( ActivityLogin.this, ActivityDashBoard.class );
           Token= loginBLL.Token;
             startActivity( intent );
             //Toast.makeText( this, "welcome "+loginBLL.Token,Toast.LENGTH_SHORT ).show();

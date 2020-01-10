@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
         twLogin.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent login= new Intent( MainActivity.this,Login_activity.class );
+                Intent login= new Intent( MainActivity.this, ActivityLogin.class );
                 startActivity( login );
             }
         } );
         createUser.setOnClickListener( new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
-                                               Intent signUP= new Intent( MainActivity.this,SignUP.class );
+                                               Intent signUP= new Intent( MainActivity.this, ActivitySignUP.class );
                                                startActivity( signUP );
                                            }
                                        }

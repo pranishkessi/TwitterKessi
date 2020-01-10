@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Verification">
+    tools:context=".ActivityVerify">
 
     <ImageView
         android:id="@+id/profile_image"
@@ -39,7 +39,7 @@
         android:layout_marginTop="128dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:text="Wait for verify "
+        android:text="Verifying "
         app:layout_constraintTop_toBottomOf="@+id/profile_image"
         tools:layout_editor_absoluteX="16dp" />
 

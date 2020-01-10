@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Final_Step_signUP extends AppCompatActivity {
+public class ActivityLastSignup extends AppCompatActivity {
     Button btn_signup;
     String email="";
     String username="";
@@ -18,7 +18,7 @@ public class Final_Step_signUP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_final__step_sign_up );
+        setContentView( R.layout.activity_lastsignup);
         btn_signup = findViewById( R.id.btn_FS_signup );
         tvemail=findViewById( R.id.email_final );
         tvuser=findViewById( R.id.username_final );
@@ -33,7 +33,7 @@ public class Final_Step_signUP extends AppCompatActivity {
         btn_signup.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( Final_Step_signUP.this, Verification.class );
+                Intent intent = new Intent( ActivityLastSignup.this, ActivityVerify.class );
                 intent.putExtra( "email",email );
                 intent.putExtra( "username",username );
                 startActivity( intent );
@@ -54,7 +54,7 @@ tvemail.setOnClickListener( new View.OnClickListener() {
 
     }
     void returnto(){
-        Intent returns=new Intent( Final_Step_signUP.this,SignUP.class );
+        Intent returns=new Intent( ActivityLastSignup.this, ActivitySignUP.class );
         returns.putExtra( "email",email );
         returns.putExtra( "username" ,username);
         startActivity( returns );

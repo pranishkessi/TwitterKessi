@@ -1,12 +1,12 @@
 package com.si.twitterkessi.model;
 
-public class User {
+public class ModelUser {
     String email;
     String password;
     String username;
     String image;
 
-    public User(String email) {
+    public ModelUser(String email) {
         this.email = email;
     }
 
@@ -14,12 +14,12 @@ public class User {
         return email;
     }
 
-    public User(String email, String password) {
+    public ModelUser(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public User(String email, String password, String username, String image) {
+    public ModelUser(String email, String password, String username, String image) {
         this.email = email;
         this.password = password;
         this.username = username;

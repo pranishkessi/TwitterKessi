@@ -1,12 +1,12 @@
 package com.si.twitterkessi.model;
 
-public class UserInfo {
+public class ModelUserInfo {
     String email;
     String _id;
     String username;
     String image;
 
-    public UserInfo(String email, String _id, String username, String image) {
+    public ModelUserInfo(String email, String _id, String username, String image) {
         this.email = email;
         this._id = _id;
         this.username = username;

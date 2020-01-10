@@ -1,11 +1,11 @@
 package com.si.twitterkessi.model;
 
-public class SignUpResponse {
+public class ModelSignUpResponse {
 
     private String status;
     private String token;
 
-    public SignUpResponse(String status, String token) {
+    public ModelSignUpResponse(String status, String token) {
         this.status = status;
         this.token = token;
     }

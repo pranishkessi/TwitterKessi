@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Verification extends AppCompatActivity {
+public class ActivityVerify extends AppCompatActivity {
     TextView tx_veri;
     Button btn_next;
     ImageView Ve_back;
@@ -51,10 +51,10 @@ public class Verification extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (tx_veri.getText().toString().isEmpty()) {
-                    Toast.makeText( Verification.this, "Wait", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivityVerify.this, "Wait", Toast.LENGTH_SHORT ).show();
                     return;
                 }
-                Intent intent = new Intent( Verification.this, Password.class );
+                Intent intent = new Intent( ActivityVerify.this, ActivityPassword.class );
                 intent.putExtra( "email", email );
                 intent.putExtra( "username", username );
                 startActivity( intent );

@@ -1,9 +1,9 @@
 package com.si.twitterkessi.model;
 
-public class Check {
+public class ModelCheck {
  private    String status;
 
-    public Check(String status) {
+    public ModelCheck(String status) {
         this.status = status;
     }
 

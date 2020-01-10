@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:layout_alignParentBottom="true"
-    tools:context=".Login_activity">
+    tools:context=".ActivityLogin">
 
     <ImageView
         android:id="@+id/profile_image"

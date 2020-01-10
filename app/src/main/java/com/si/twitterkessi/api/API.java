@@ -1,12 +1,12 @@
 package com.si.twitterkessi.api;
 
 
-import com.si.twitterkessi.model.Check;
-import com.si.twitterkessi.model.ImageModel;
-import com.si.twitterkessi.model.SignUpResponse;
-import com.si.twitterkessi.model.TweetM;
-import com.si.twitterkessi.model.User;
-import com.si.twitterkessi.model.UserInfo;
+import com.si.twitterkessi.model.ModelCheck;
+import com.si.twitterkessi.model.ModelImage;
+import com.si.twitterkessi.model.ModelSignUpResponse;
+import com.si.twitterkessi.model.ModelTweet;
+import com.si.twitterkessi.model.ModelUser;
+import com.si.twitterkessi.model.ModelUserInfo;
 
 import java.util.List;
 
@@ -23,22 +23,22 @@ import retrofit2.http.Part;
 public interface API {
     @FormUrlEncoded
     @POST("users/login")
-    Call<SignUpResponse> checkUser(@Field("email") String username, @Field("password") String password);
+    Call<ModelSignUpResponse> checkUser(@Field("email") String username, @Field("password") String password);
 
 
     @POST("users/signup")
-    Call<SignUpResponse> register(@Body User cud);
+    Call<ModelSignUpResponse> register(@Body ModelUser cud);
 
     @Multipart
     @POST("upload")
-    Call<ImageModel> uploadImage(@Part MultipartBody.Part imageFile);
+    Call<ModelImage> uploadImage(@Part MultipartBody.Part imageFile);
 
     @POST("users/check")
-    Call<Check> check(@Body User email);
+    Call<ModelCheck> check(@Body ModelUser email);
 
     @POST("users/showalltweet")
-    Call<List<TweetM>> GetTweet(@Header("Authorization") String token);
+    Call<List<ModelTweet>> GetTweet(@Header("Authorization") String token);
 
     @POST("users/me")
-    Call<UserInfo> getUser(@Header("Authorization") String token);
+    Call<ModelUserInfo> getUser(@Header("Authorization") String token);
 }

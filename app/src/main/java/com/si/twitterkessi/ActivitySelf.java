@@ -10,14 +10,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class YourSelf extends AppCompatActivity {
+public class ActivitySelf extends AppCompatActivity {
 Button btn_next;
 TextView tv_skip;
 EditText et_bio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_your_self );
+        setContentView( R.layout.activity_self);
         tv_skip=findViewById( R.id.tv_bio_skip );
         btn_next=findViewById( R.id.btn_bio_next);
         et_bio=findViewById( R.id.et_bio );
@@ -31,7 +31,7 @@ EditText et_bio;
             @Override
             public void onClick(View v) {
                 if(et_bio.getText().toString().isEmpty()){
-                    Toast.makeText( YourSelf.this, "fill your bio first", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivitySelf.this, "fill your bio first", Toast.LENGTH_SHORT ).show();
                 return;}
                 else{
                     NextTO();
@@ -40,7 +40,7 @@ EditText et_bio;
         } );
     }
     void NextTO(){
-        Intent intent = new Intent( YourSelf.this,Interested.class );
+        Intent intent = new Intent( ActivitySelf.this, ActivityInterest_List.class );
         startActivity( intent );
     }
 }

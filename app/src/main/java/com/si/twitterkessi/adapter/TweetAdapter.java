@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.si.twitterkessi.R;
-import com.si.twitterkessi.model.TweetM;
+import com.si.twitterkessi.model.ModelTweet;
 import com.si.twitterkessi.strictMode.StrictModeClass;
 
 import java.io.InputStream;
@@ -21,11 +21,11 @@ import java.util.List;
 
 public class TweetAdapter  extends RecyclerView.Adapter<TweetAdapter.TweetList> {
     Context context;
-    List<TweetM> dataSetList;
+    List<ModelTweet> dataSetList;
     public static final String base_url = "http://10.0.2.2:3000/";
     String imagePath = base_url + "uploads/" ;
 
-    public TweetAdapter(Context context, List<TweetM> dataSetList) {
+    public TweetAdapter(Context context, List<ModelTweet> dataSetList) {
         this.context = context;
         this.dataSetList = dataSetList;
     }
@@ -40,7 +40,7 @@ public class TweetAdapter  extends RecyclerView.Adapter<TweetAdapter.TweetList> 
 
     @Override
     public void onBindViewHolder(@NonNull TweetList holder, int position) {
-        TweetM tm = dataSetList.get( position );
+        ModelTweet tm = dataSetList.get( position );
         holder.txt_head.setText( tm.getHeadingtext() );
         holder.txt_body.setText( tm.getMessagetext() );
         StrictModeClass.StrictMode();

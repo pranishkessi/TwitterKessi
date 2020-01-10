@@ -1,9 +1,9 @@
 package com.si.twitterkessi.model;
 
-public class ImageModel {
+public class ModelImage {
     private  String filename;
 
-    public ImageModel(String filename) {
+    public ModelImage(String filename) {
         this.filename = filename;
     }
 

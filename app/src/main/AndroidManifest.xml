@@ -16,21 +16,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.si.twitterkessi.Interested"/>
-        <activity android:name="com.si.twitterkessi.YourSelf" />
+        <activity android:name="com.si.twitterkessi.ActivityInterest_List"/>
+        <activity android:name="com.si.twitterkessi.ActivitySelf" />
         <activity
-            android:name="com.si.twitterkessi.DashBoard"
+            android:name="com.si.twitterkessi.ActivityDashBoard"
             android:label="title_activity_dash_board"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.si.twitterkessi.Customize" />
-        <activity android:name="com.si.twitterkessi.Camera" />
-        <activity android:name="com.si.twitterkessi.SignUP" />
+        <activity android:name="com.si.twitterkessi.ActivityCustom" />
+        <activity android:name="com.si.twitterkessi.ActivityCamera" />
+        <activity android:name="com.si.twitterkessi.ActivitySignUP" />
         <activity android:name="com.si.twitterkessi.MainActivity" />
-        <activity android:name="com.si.twitterkessi.Login_activity" />
-        <activity android:name="com.si.twitterkessi.Password" />
-        <activity android:name="com.si.twitterkessi.Verification" />
-        <activity android:name="com.si.twitterkessi.Final_Step_signUP" />
-        <activity android:name="com.si.twitterkessi.SplashScreen">
+        <activity android:name="com.si.twitterkessi.ActivityLogin" />
+        <activity android:name="com.si.twitterkessi.ActivityPassword" />
+        <activity android:name="com.si.twitterkessi.ActivityVerify" />
+        <activity android:name="com.si.twitterkessi.ActivityLastSignup" />
+        <activity android:name="com.si.twitterkessi.ActivitySplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

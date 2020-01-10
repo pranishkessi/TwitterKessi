@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.si.twitterkessi.R;
-import com.si.twitterkessi.model.DataSet;
+import com.si.twitterkessi.model.ModelDataSet;
 
 import java.util.List;
 
-public class InterestsAdapter extends RecyclerView.Adapter<InterestsAdapter.InterestName> {
+public class InterestListAdapter extends RecyclerView.Adapter<InterestListAdapter.InterestName> {
 
     Context context;
-    List<DataSet> dataSetList;
+    List<ModelDataSet> dataSetList;
 
-    public InterestsAdapter(Context context, List<DataSet> dataSetList) {
+    public InterestListAdapter(Context context, List<ModelDataSet> dataSetList) {
         this.context = context;
         this.dataSetList = dataSetList;
     }
@@ -35,7 +35,7 @@ public class InterestsAdapter extends RecyclerView.Adapter<InterestsAdapter.Inte
     @Override
     public void onBindViewHolder(@NonNull InterestName holder, final int position) {
 
-        DataSet dataSet = dataSetList.get( position );
+        ModelDataSet dataSet = dataSetList.get( position );
 
 
         holder.txname.setText( dataSet.getName() );

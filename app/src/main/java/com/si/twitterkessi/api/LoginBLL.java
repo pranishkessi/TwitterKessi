@@ -1,7 +1,7 @@
 package com.si.twitterkessi.api;
 
 
-import com.si.twitterkessi.model.SignUpResponse;
+import com.si.twitterkessi.model.ModelSignUpResponse;
 
 import java.io.IOException;
 
@@ -17,13 +17,13 @@ public class LoginBLL {
 
         ApiClass usersAPI = new ApiClass();
                // Url.getInstance().create(UsersAPI.class);
-        Call<SignUpResponse> usersCall = usersAPI.calls().checkUser(username, password);
+        Call<ModelSignUpResponse> usersCall = usersAPI.calls().checkUser(username, password);
 
         try {
-            Response<SignUpResponse> loginResponse = usersCall.execute();
+            Response<ModelSignUpResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful() &&
                     loginResponse.body().getStatus().equals("Login success!")) {
-                        SignUpResponse signUpResponse=loginResponse.body();
+                        ModelSignUpResponse signUpResponse=loginResponse.body();
                         Token=signUpResponse.getToken();
 
 

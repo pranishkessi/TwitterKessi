@@ -18,7 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.si.twitterkessi.api.ApiClass;
-import com.si.twitterkessi.model.UserInfo;
+import com.si.twitterkessi.model.ModelUserInfo;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -27,11 +27,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DashBoard extends AppCompatActivity {
+public class ActivityDashBoard extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    Camera cm = new Camera();
-    Login_activity la = new Login_activity();
+    ActivityCamera cm = new ActivityCamera();
+    ActivityLogin la = new ActivityLogin();
     TextView tx_nmae,txt_email;
     ImageView imageView;
     public static final String base_url = "http://10.0.2.2:3000/";
@@ -89,16 +89,16 @@ public class DashBoard extends AppCompatActivity {
 
         ApiClass usersAPI = new ApiClass();
 
-        Call<UserInfo> userCall = usersAPI.calls().getUser( token );
-        userCall.enqueue( new Callback<UserInfo>() {
+        Call<ModelUserInfo> userCall = usersAPI.calls().getUser( token );
+        userCall.enqueue( new Callback<ModelUserInfo>() {
             @Override
-            public void onResponse(Call<UserInfo> call, Response<UserInfo> response) {
+            public void onResponse(Call<ModelUserInfo> call, Response<ModelUserInfo> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText( DashBoard.this, "Code " + response.code(), Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( ActivityDashBoard.this, "Code " + response.code(), Toast.LENGTH_SHORT ).show();
                     return;
                 }
-                UserInfo userInfo= response.body();
-                Toast.makeText( DashBoard.this, " "+userInfo.get_id(), Toast.LENGTH_SHORT ).show();
+                ModelUserInfo userInfo= response.body();
+                Toast.makeText( ActivityDashBoard.this, " "+userInfo.get_id(), Toast.LENGTH_SHORT ).show();
                 tx_nmae.setText( userInfo.getUsername() );
                 txt_email.setText( userInfo.getEmail() );
               String imgPath = imagePath +  userInfo.getImage();
@@ -112,8 +112,8 @@ public class DashBoard extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<UserInfo>call, Throwable t) {
-                Toast.makeText( DashBoard.this, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
+            public void onFailure(Call<ModelUserInfo>call, Throwable t) {
+                Toast.makeText( ActivityDashBoard.this, "Error " + t.getLocalizedMessage(), Toast.LENGTH_SHORT ).show();
 
             }
         } );
